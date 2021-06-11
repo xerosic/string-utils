@@ -1,4 +1,5 @@
 #pragma once
+#include <algorithm>
 #include <codecvt>
 #include <sstream>
 #include <string>
@@ -139,18 +140,24 @@ bool string::starts_with(std::wstring str, std::wstring prefix)
 	return false;
 }
 
-// Function coming soon cause C++ makes me wanna die
+// Check if a string ends with another string
 bool string::ends_with(std::string str, std::string suffix)
 {
-	throw std::logic_error("Not Implemented Exception");
-	return false;
+	auto it = suffix.begin();
+	return str.size() >= suffix.size() &&
+                std::all_of(std::next(str.begin(), str.size() - suffix.size()), str.end(), [&it](const char & c){
+                    return c == *(it++);
+        } );
 }
 
-// Function coming soon cause C++ makes me wanna die
+// Check if a wide string ends with another wide string
 bool string::ends_with(std::wstring str, std::wstring suffix)
 {
-	throw std::logic_error("Not Implemented Exception");
-	return false;
+	auto it = suffix.begin();
+	return str.size() >= suffix.size() &&
+		std::all_of(std::next(str.begin(), str.size() - suffix.size()), str.end(), [&it](const char& c) {
+		return c == *(it++);
+			});
 }
 
 
