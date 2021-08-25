@@ -107,37 +107,26 @@ std::vector<std::wstring> string::split(std::wstring str, std::wstring delimiter
 // Small wrapper function for string.find()
 bool string::find(std::string haystack, std::string needle)
 {
-	if (haystack.find(needle) != std::string::npos) {
-		return true;
-	}
-	return false;
+	return haystack.find(needle) != std::string::npos;
 }
 
 // Small wrapper function for wstring.find()
 bool string::find(std::wstring haystack, std::wstring needle)
 {
-	if (haystack.find(needle) != std::string::npos) {
-		return true;
-	}
-	return false;
+	return haystack.find(needle) != std::string::npos;
 }
 
 // Small wrapper function for checking if a string starts with another string
 bool string::starts_with(std::string str, std::string prefix)
 {
-	if (str.rfind(prefix, 0) == 0) {
-		return true;
-	}
-	return false;
+	return str.rfind(prefix, 0) == 0;
+
 }
 
 // Small wrapper function for checking if a wide string starts with another wide string
 bool string::starts_with(std::wstring str, std::wstring prefix)
 {
-	if (str.rfind(prefix, 0) == 0) {
-		return true;
-	}
-	return false;
+	return str.rfind(prefix, 0) == 0;
 }
 
 // Check if a string ends with another string
